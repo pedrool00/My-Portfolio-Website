@@ -17,22 +17,22 @@ const LandingSection = () => {
       isDarkBackground
       backgroundColor="#2A4365"
     >
-      <VStack spacing={4} textAlign="center" mt={32} mb={10}>
+      <VStack spacing={4} textAlign="center" mt={20} mb={5}>
         <Avatar
           size="100%"
           name="Pedro Osorio López"
           src="https://0.gravatar.com/avatar/b3b2625d6092d896f839bc0b14849fae899afe37f857fbf4a66f1eb2a20e9c7e?size=256"
         />
-        <Heading as="h1" size={isMobile ? "lg" : "2xl"} mx={10}>
+        <Heading as="h1" size={isMobile ? "lg" : "xl"} mx={10}>
           {greeting}
         </Heading>
-        <Heading as="h2" size={isMobile ? "sm" : "lg"} mx={10}>
+        <Heading as="h2" size={isMobile ? "sm" : "md"} mx={10}>
           {bio1}
         </Heading>
-        <Heading as="h2" size={isMobile ? "sm" : "lg"} mx={10}>
+        <Heading as="h2" size={isMobile ? "sm" : "md"} mx={10}>
           {bio2}
         </Heading>
-        <Heading as="h2" size={isMobile ? "sm" : "lg"} mx={10}>
+        <Heading as="h2" size={isMobile ? "sm" : "md"} mx={10}>
           {bio3}
         </Heading>
       </VStack>
