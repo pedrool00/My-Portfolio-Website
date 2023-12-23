@@ -18,7 +18,7 @@ const Card = ({ title, description, imageSrc }) => {
         <Heading as="h2" size="md">
           {title}
         </Heading>
-        <Text color="white">{description}</Text>
+        <Text color="white" style={{ textAlign: 'justify', textJustify: 'inter-word' }}>{description}</Text>
       </VStack>
     </Box>
   );
