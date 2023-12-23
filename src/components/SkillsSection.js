@@ -48,7 +48,7 @@ const SkillsSection = () => {
       <Box
         display="grid"
         gridTemplateColumns={
-          isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 50%))"
+          isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 80%))"
         }
         gridGap={8}
         justifyContent="center"
