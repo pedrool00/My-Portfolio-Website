@@ -87,12 +87,12 @@ const CertificationsSection = () => {
       justifyContent="center"
       alignItems="center"
       isDarkBackground
-      backgroundColor="#512DA8"
+      backgroundColor="#f0f0f0"
       mt={8}
       mb={8}
     >
       <VStack spacing={8} textAlign="center" mt={8}>
-        <Heading as="h2" size="2xl" color="white" id="certifications-section">
+        <Heading as="h1" color="black" id="certifications-section">
           Certifications
         </Heading>
         <VStack spacing={4} w="100%" maxW={isMobile ? "460px" : "540px"}>
@@ -107,7 +107,7 @@ const CertificationsSection = () => {
                 borderWidth="1px"
                 borderRadius="lg"
                 p={4}
-                borderColor="white"
+                borderColor="black"
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
@@ -117,10 +117,10 @@ const CertificationsSection = () => {
                 mx={isMobile ? "auto" : 0}
               >
                 <VStack spacing={2}>
-                  <Heading as="h3" size={isMobile ? "md" : "lg"} mb={2}>
+                  <Heading as="h3" color="#424242" size={isMobile ? "md" : "lg"} mb={2}>
                     {certification.title}
                   </Heading>
-                  <FontAwesomeIcon icon={certification.icon} size={isMobile ? "lg" : "2x"} />
+                  <FontAwesomeIcon icon={certification.icon} color="grey" size={isMobile ? "lg" : "2x"} />
                 </VStack>
               </Box>
             </a>
@@ -136,7 +136,7 @@ const CertificationsSection = () => {
                 borderWidth="1px"
                 borderRadius="lg"
                 p={4}
-                borderColor="white"
+                borderColor="black"
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
@@ -146,10 +146,10 @@ const CertificationsSection = () => {
                 mx={isMobile ? "auto" : 0}
               >
                 <VStack spacing={2}>
-                  <Heading as="h3" size={isMobile ? "md" : "lg"} mb={2}>
+                  <Heading as="h3" color="#424242" size={isMobile ? "md" : "lg"} mb={2}>
                     {certification.title}
                   </Heading>
-                  <img src={certification.icon} alt="Icon" width={isMobile ? 32 : 42} height={isMobile ? 32 : 42} />
+                  <img src={certification.icon} alt="Icon" width={isMobile ? 26 : 40} height={isMobile ? 32 : 42} />
                 </VStack>
               </Box>
             </a>
@@ -162,13 +162,14 @@ const CertificationsSection = () => {
             alignItems="center"
             w="100%"
           >
-            <Heading as="h3" size="lg" mb={2}>
+            <Heading as="h3" size="lg" color={"black"} my={2}>
             Never Stop Learning
           </Heading>
         </Box>
         <Button
           onClick={scrollToTop}
           colorScheme="white"
+          color="black"
           variant="outline"
           size="lg"
           borderRadius="full"

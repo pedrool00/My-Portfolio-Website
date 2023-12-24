@@ -13,7 +13,7 @@ const LandingSection = () => {
       justifyContent="center"
       alignItems="center"
       isDarkBackground
-      backgroundColor="#2A4365"
+      backgroundColor="#f0f0f0"
     >
       <VStack spacing={4} textAlign="center" mt={20} mb={5}>
         <Avatar
@@ -21,16 +21,16 @@ const LandingSection = () => {
           name="Pedro Osorio López"
           src="https://0.gravatar.com/avatar/b3b2625d6092d896f839bc0b14849fae899afe37f857fbf4a66f1eb2a20e9c7e?size=256"
         />
-        <Heading as="h1" size="lg" mx={10}>
+        <Heading as="h1" size="lg"color="black" mx={10}>
           {greeting}
         </Heading>
-        <Heading as="h2" size="sm" mx={10}>
+        <Heading as="h2" size="sm" color="black" mx={10}>
           {bio1}
         </Heading>
-        <Heading as="h2" size="sm" mx={10}>
+        <Heading as="h2" size="sm" color="black" mx={10}>
           {bio2}
         </Heading>
-        <Heading as="h2" size="sm" mx={10}>
+        <Heading as="h2" size="sm"color="black" mx={10}>
           {bio3}
         </Heading>
       </VStack>

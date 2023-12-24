@@ -37,12 +37,12 @@ const SkillsSection = () => {
     <FullScreenSection
       justifyContent="center"
       alignItems="center"
-      backgroundColor="#14532d"
+      backgroundColor="#e6e6e6"
       isDarkBackground
       p={8}
       spacing={8}
     >
-      <Heading as="h1" id="skills-section" textAlign="center">
+      <Heading as="h1" id="skills-section" color="black" textAlign="center">
         Skills
       </Heading>
       <Box
