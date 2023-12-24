@@ -4,7 +4,7 @@ import React from "react";
 const Card = ({ title, description, imageSrc }) => {
   return (
     <Box
-      bg="black"
+      bg="#3C3C3C"
       borderRadius="lg"
       overflow="hidden"
       boxShadow="lg"
