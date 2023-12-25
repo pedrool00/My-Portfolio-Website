@@ -83,6 +83,7 @@ const scrollToTop = () => {
 const CertificationsSection = () => {
   const [isDarkMode, setIsDarkMode] = useState(true); // Set isDarkMode to true as the default
   const [showButton, setShowButton] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const handleToggle = () => {
@@ -190,31 +191,39 @@ const CertificationsSection = () => {
         <div
           style={{
             position: "fixed",
-            bottom: "20%",
+            bottom: "22%",
             right: "0.1rem",
             transform: "translateY(-50%)",
             marginRight: "0.1rem",
           }}
         >
-          <Button
-            onClick={handleToggle}
-            backgroundColor={isDarkMode ? "#505050" : "#f0f0f0"}
-            color={isDarkMode ? "white" : "black"}
-          >
-            <div
+          <button
+              onClick={handleToggle}
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: `2px solid ${isDarkMode ? "white" : "black"}`,
+                backgroundColor: isDarkMode ? "#505050" : "#f0f0f0",
+                color: isDarkMode ? "white" : "black",
                 borderRadius: "50%",
                 width: "2rem",
                 height: "2rem",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: `2px solid ${isDarkMode ? "white" : "black"}`,
+                cursor: "pointer",
+                padding: 0,
+                outline: "none",
+                marginRight: "1rem",
+                transition: "transform 0.3s",
+                transform: isHovered ? "scale(1.1)" : "scale(1)",
               }}
             >
-              <FontAwesomeIcon icon={faLightbulb} color={isDarkMode ? "white" : "black"} />
-            </div>
-          </Button>
+              <FontAwesomeIcon
+                icon={faLightbulb}
+                color={isDarkMode ? "white" : "black"}
+              />
+            </button>
         </div>
       )}
         <Button
