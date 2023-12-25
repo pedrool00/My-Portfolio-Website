@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { VStack, Heading, Box, Button, useBreakpointValue } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import gcpIcon from '../images/gcp-icon.jpg';
 import eccIcon from '../images/ecc-icon.jpg';
+import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import {
   faGoogle,
   faAws,
@@ -80,19 +81,38 @@ const scrollToTop = () => {
 };
 
 const CertificationsSection = () => {
+  const [isDarkMode, setIsDarkMode] = useState(true); // Set isDarkMode to true as the default
+  const [showButton, setShowButton] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
+
+  const handleToggle = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollThreshold = document.documentElement.scrollHeight - window.innerHeight - 1070;
+      setShowButton(window.scrollY >= scrollThreshold);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
     <FullScreenSection
       justifyContent="center"
       alignItems="center"
-      isDarkBackground
-      backgroundColor="#f0f0f0"
+      isDarkBackground={isDarkMode}
+      backgroundColor={isDarkMode ? "#505050" : "#f0f0f0"}
       mt={8}
       mb={8}
     >
       <VStack spacing={8} textAlign="center" mt={8}>
-        <Heading as="h1" color="black" id="certifications-section">
+        <Heading as="h1" color={isDarkMode ? "white" : "black"} id="certifications-section">
           Certifications
         </Heading>
         <VStack spacing={4} w="100%" maxW={isMobile ? "460px" : "540px"}>
@@ -107,7 +127,7 @@ const CertificationsSection = () => {
                 borderWidth="1px"
                 borderRadius="lg"
                 p={4}
-                borderColor="black"
+                borderColor={isDarkMode ? "white" : "black"}
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
@@ -117,10 +137,10 @@ const CertificationsSection = () => {
                 mx={isMobile ? "auto" : 0}
               >
                 <VStack spacing={2}>
-                  <Heading as="h3" color="#424242" size={isMobile ? "md" : "lg"} mb={2}>
+                  <Heading as="h3" color={isDarkMode ? "white" : "black"} size={isMobile ? "md" : "lg"} mb={2}>
                     {certification.title}
                   </Heading>
-                  <FontAwesomeIcon icon={certification.icon} color="grey" size={isMobile ? "lg" : "2x"} />
+                  <FontAwesomeIcon icon={certification.icon} color={isDarkMode ? "#CDCDCD" : "#696969"} size={isMobile ? "lg" : "2x"} />
                 </VStack>
               </Box>
             </a>
@@ -136,7 +156,7 @@ const CertificationsSection = () => {
                 borderWidth="1px"
                 borderRadius="lg"
                 p={4}
-                borderColor="black"
+                borderColor={isDarkMode ? "white" : "black"}
                 display="flex"
                 justifyContent="center"
                 alignItems="center"
@@ -146,7 +166,7 @@ const CertificationsSection = () => {
                 mx={isMobile ? "auto" : 0}
               >
                 <VStack spacing={2}>
-                  <Heading as="h3" color="#424242" size={isMobile ? "md" : "lg"} mb={2}>
+                  <Heading as="h3" color={isDarkMode ? "white" : "black"} size={isMobile ? "md" : "lg"} mb={2}>
                     {certification.title}
                   </Heading>
                   <img src={certification.icon} alt="Icon" width={isMobile ? 26 : 40} height={isMobile ? 32 : 42} />
@@ -162,14 +182,45 @@ const CertificationsSection = () => {
             alignItems="center"
             w="100%"
           >
-            <Heading as="h3" size="lg" color={"black"} my={2}>
+            <Heading as="h3" size="lg" color={isDarkMode ? "white" : "black"} my={2}>
             Never Stop Learning
           </Heading>
         </Box>
+        {showButton && (
+        <div
+          style={{
+            position: "fixed",
+            bottom: "50%",
+            right: "1rem",
+            transform: "translateY(-50%)",
+            marginRight: "1rem",
+          }}
+        >
+          <Button
+            onClick={handleToggle}
+            backgroundColor={isDarkMode ? "#505050" : "#f0f0f0"}
+            color={isDarkMode ? "white" : "black"}
+          >
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                justifyContent: "center",
+                border: `2px solid ${isDarkMode ? "white" : "black"}`,
+                borderRadius: "50%",
+                width: "2rem",
+                height: "2rem",
+              }}
+            >
+              <FontAwesomeIcon icon={faLightbulb} color={isDarkMode ? "white" : "black"} />
+            </div>
+          </Button>
+        </div>
+      )}
         <Button
           onClick={scrollToTop}
           colorScheme="white"
-          color="black"
+          color={isDarkMode ? "white" : "black"}
           variant="outline"
           size="lg"
           borderRadius="full"
