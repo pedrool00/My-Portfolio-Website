@@ -59,10 +59,9 @@ const LandingSection = () => {
         {showButton && (
           <div
             style={{
-              position: "fixed",
-              top: "30%",
-              right: "0.1rem",
-              //transform: "translateY(-50%)",
+              display: "flex",
+              alignItems: "center",
+              position: "relative",
               marginRight: "0.1rem",
             }}
           >
@@ -83,7 +82,6 @@ const LandingSection = () => {
                 cursor: "pointer",
                 padding: 0,
                 outline: "none",
-                marginRight: "1rem",
                 transition: "transform 0.3s",
                 transform: isHovered ? "scale(1.1)" : "scale(1)",
               }}

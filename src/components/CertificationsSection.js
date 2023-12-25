@@ -193,7 +193,7 @@ const CertificationsSection = () => {
             position: "fixed",
             bottom: "25%",
             right: "0.1rem",
-            //transform: "translateY(-50%)",
+            transform: "translateY(-50%)",
             marginRight: "0.1rem",
           }}
         >
