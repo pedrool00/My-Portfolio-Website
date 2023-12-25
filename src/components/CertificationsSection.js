@@ -91,7 +91,7 @@ const CertificationsSection = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollThreshold = document.documentElement.scrollHeight - window.innerHeight - 1070;
+      const scrollThreshold = document.documentElement.scrollHeight - window.innerHeight - 20;
       setShowButton(window.scrollY >= scrollThreshold);
     };
 
@@ -190,10 +190,10 @@ const CertificationsSection = () => {
         <div
           style={{
             position: "fixed",
-            bottom: "50%",
-            right: "1rem",
+            bottom: "20%",
+            right: "0.1rem",
             transform: "translateY(-50%)",
-            marginRight: "1rem",
+            marginRight: "0.1rem",
           }}
         >
           <Button

@@ -59,10 +59,10 @@ const LandingSection = () => {
         <div
           style={{
             position: "fixed",
-            top: "50%",
-            right: "1rem",
+            top: "22%",
+            right: "0.1rem",
             transform: "translateY(-50%)",
-            marginRight: "1rem",
+            marginRight: "0,1rem",
           }}
         >
           <Button
