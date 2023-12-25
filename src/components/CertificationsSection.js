@@ -191,7 +191,7 @@ const CertificationsSection = () => {
         <div
           style={{
             position: "fixed",
-            bottom: "22%",
+            bottom: "25%",
             right: "0.1rem",
             transform: "translateY(-50%)",
             marginRight: "0.1rem",
