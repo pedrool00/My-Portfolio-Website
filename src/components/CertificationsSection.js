@@ -108,7 +108,7 @@ const CertificationsSection = () => {
       justifyContent="center"
       alignItems="center"
       isDarkBackground={isDarkMode}
-      backgroundColor={isDarkMode ? "#505050" : "#f0f0f0"}
+      backgroundColor={isDarkMode ? "#505050" : "#d7d7d7"}
       mt={8}
       mb={8}
     >
@@ -193,7 +193,7 @@ const CertificationsSection = () => {
             position: "fixed",
             bottom: "25%",
             right: "0.1rem",
-            transform: "translateY(-50%)",
+            //transform: "translateY(-50%)",
             marginRight: "0.1rem",
           }}
         >
@@ -202,7 +202,7 @@ const CertificationsSection = () => {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               style={{
-                backgroundColor: isDarkMode ? "#505050" : "#f0f0f0",
+                backgroundColor: isDarkMode ? "#505050" : "#d7d7d7",
                 color: isDarkMode ? "white" : "black",
                 borderRadius: "50%",
                 width: "2rem",

@@ -35,7 +35,7 @@ const LandingSection = () => {
         justifyContent="center"
         alignItems="center"
         isDarkBackground={isDarkMode}
-        backgroundColor={isDarkMode ? "#505050" : "#f0f0f0"}
+        backgroundColor={isDarkMode ? "#505050" : "#d7d7d7"}
       >
         <VStack spacing={4} textAlign="center" mt={20} mb={5}>
           <Avatar
@@ -62,7 +62,7 @@ const LandingSection = () => {
               position: "fixed",
               top: "30%",
               right: "0.1rem",
-              transform: "translateY(-50%)",
+              //transform: "translateY(-50%)",
               marginRight: "0.1rem",
             }}
           >
@@ -71,7 +71,7 @@ const LandingSection = () => {
               onMouseEnter={() => setIsHovered(true)}
               onMouseLeave={() => setIsHovered(false)}
               style={{
-                backgroundColor: isDarkMode ? "#505050" : "#f0f0f0",
+                backgroundColor: isDarkMode ? "#505050" : "#d7d7d7",
                 color: isDarkMode ? "white" : "black",
                 borderRadius: "50%",
                 width: "2rem",
