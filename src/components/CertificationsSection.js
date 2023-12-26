@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { VStack, Heading, Box, Button, useBreakpointValue } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
+import ColorSwapButton from "./ColorSwapButton";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import gcpIcon from '../images/gcp-icon.jpg';
 import eccIcon from '../images/ecc-icon.jpg';
-import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import {
   faGoogle,
   faAws,
@@ -83,7 +83,6 @@ const scrollToTop = () => {
 const CertificationsSection = () => {
   const [isDarkMode, setIsDarkMode] = useState(true); // Set isDarkMode to true as the default
   const [showButton, setShowButton] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
   const handleToggle = () => {
@@ -92,7 +91,7 @@ const CertificationsSection = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollThreshold = document.documentElement.scrollHeight - window.innerHeight - 20;
+      const scrollThreshold = document.documentElement.scrollHeight - window.innerHeight - 10;
       setShowButton(window.scrollY >= scrollThreshold);
     };
 
@@ -188,43 +187,17 @@ const CertificationsSection = () => {
           </Heading>
         </Box>
         {showButton && (
-        <div
-          style={{
+        <ColorSwapButton
+          isDarkMode={isDarkMode}
+          onClick={handleToggle}
+          containerStyles={{
             position: "fixed",
             bottom: "25%",
             right: "0.1rem",
             transform: "translateY(-50%)",
             marginRight: "0.1rem",
           }}
-        >
-          <button
-              onClick={handleToggle}
-              onMouseEnter={() => setIsHovered(true)}
-              onMouseLeave={() => setIsHovered(false)}
-              style={{
-                backgroundColor: isDarkMode ? "#505050" : "#d7d7d7",
-                color: isDarkMode ? "white" : "black",
-                borderRadius: "50%",
-                width: "2rem",
-                height: "2rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                border: `2px solid ${isDarkMode ? "white" : "black"}`,
-                cursor: "pointer",
-                padding: 0,
-                outline: "none",
-                marginRight: "1rem",
-                transition: "transform 0.3s",
-                transform: isHovered ? "scale(1.1)" : "scale(1)",
-              }}
-            >
-              <FontAwesomeIcon
-                icon={faLightbulb}
-                color={isDarkMode ? "white" : "black"}
-              />
-            </button>
-        </div>
+        />
       )}
         <Button
           onClick={scrollToTop}
