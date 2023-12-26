@@ -90,7 +90,7 @@ const Header = () => {
         headerRef.current.style.transform = "translateY(0)";
       }
       prevScrollY.current = currentScrollY;
-      if (currentScrollY === 0) {
+      if (currentScrollY < 10) {
         headerRef.current.style.transform = "translateY(0)";
       }
     };
