@@ -6,6 +6,7 @@ import SkillsSection from "./components/SkillsSection";
 import CertificationsSection from "./components/CertificationsSection";
 import Footer from "./components/Footer";
 
+// Renders the entire app
 function App() {
   return (
     <ChakraProvider>
