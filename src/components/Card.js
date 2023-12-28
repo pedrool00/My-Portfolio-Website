@@ -1,8 +1,11 @@
 import { Box, Heading, Text, Image, VStack } from "@chakra-ui/react";
 import React from "react";
 
+// This is a functional component named Card
 const Card = ({ title, description, imageSrc }) => {
   return (
+    // The card is wrapped in a Box component with styling properties
+    // Everything after the styling are the contents of the card
     <Box
       bg="#3C3C3C"
       borderRadius="lg"

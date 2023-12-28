@@ -4,6 +4,7 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack, VStack, useMediaQuery } from "@chakra-ui/react";
 
+// Array of contact information
 const Contact = [
   {
     icon: faEnvelope,
@@ -33,15 +34,18 @@ const Footer = () => {
           alignItems="center"
           maxWidth={{ base: "100%", sm: "640px", md: "768px", lg: "1024px" }}
         >
+          {/* HStack for contact information */}
           <HStack
             width="100%"
             justifyContent="space-between"
             alignItems="center"
             flexWrap="wrap"
           >
+            {/* VStack for "Contact Me" text and contact icons */}
             <VStack alignItems="center" spacing={2}>
               <p style={textStyle}>Contact Me:</p>
               <HStack spacing={4}>
+                {/* Mapping over the Contact array to display contact icons */}
                 {Contact.map((contact, index) => (
                   <a
                     key={index}
@@ -51,6 +55,7 @@ const Footer = () => {
                     onMouseEnter={() => setHoveredIcon(index)}
                     onMouseLeave={() => setHoveredIcon(null)}
                   >
+                    {/* FontAwesomeIcon component for contact icons */}
                     <FontAwesomeIcon
                       icon={contact.icon}
                       size={isMobile ? "lg" : "2x"}
@@ -65,6 +70,8 @@ const Footer = () => {
                 ))}
               </HStack>
             </VStack>
+            
+            {/* VStack for author name and copyright */}
             <VStack alignItems="center">
               <p style={textStyle}>Pedro Osorio Lopez</p>
               <p style={textStyle}>© 2023</p>

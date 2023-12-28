@@ -4,7 +4,7 @@ import FullScreenSection from "./FullScreenSection";
 import ColorSwapButton from "./ColorSwapButton";
 
 const LandingSection = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true); // Set isDarkMode to true as the default
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [showButton, setShowButton] = useState(true);
 
   const greeting = "Hello, this is Pedro!";
@@ -12,12 +12,14 @@ const LandingSection = () => {
   const bio2 = "I am also a self-taught Full-Stack Developer and Data Scientist.";
   const bio3 = "Passionate about sports; Elite Track and Field Athlete.";
 
+  // Toggle dark mode
   const handleToggle = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  // Handle scroll event
   const handleScroll = () => {
-    const scrollThreshold = 10; // Adjust this value as needed
+    const scrollThreshold = 10;
     setShowButton(window.scrollY <= scrollThreshold);
   };
 
@@ -56,6 +58,8 @@ const LandingSection = () => {
           {bio3}
         </Heading>
       </VStack>
+
+      {/* Color Swap Button */}
       {showButton && (
         <ColorSwapButton
           isDarkMode={isDarkMode}

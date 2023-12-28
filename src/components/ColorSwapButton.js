@@ -3,35 +3,38 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLightbulb } from "@fortawesome/free-solid-svg-icons";
 
 const ColorSwapButton = ({ isDarkMode, onClick, buttonStyles, containerStyles }) => {
+  // State variable to track whether the button is being hovered
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div style={containerStyles}>
+      {/* Button element */}
       <button
         onClick={onClick}
-        onMouseEnter={() => setIsHovered(true)}
+        onMouseEnter={() => setIsHovered(true)} 
         onMouseLeave={() => setIsHovered(false)}
         style={{
-          backgroundColor: isDarkMode ? "#505050" : "#d7d7d7",
-          color: isDarkMode ? "white" : "black",
+          backgroundColor: isDarkMode ? "#505050" : "#d7d7d7", 
+          color: isDarkMode ? "white" : "black", 
           borderRadius: "50%",
-          width: "2rem",
-          height: "2rem",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          width: "2rem", 
+          height: "2rem", 
+          display: "flex", 
+          alignItems: "center", 
+          justifyContent: "center", 
           border: `2px solid ${isDarkMode ? "white" : "black"}`,
           cursor: "pointer",
-          padding: 0,
-          outline: "none",
-          marginRight: "1rem",
-          transition: "transform 0.3s",
-          transform: isHovered ? "scale(1.1)" : "scale(1)",
-          ...buttonStyles, // Apply additional button styles
+          padding: 0, 
+          outline: "none", 
+          marginRight: "1rem", 
+          transition: "transform 0.3s", 
+          transform: isHovered ? "scale(1.1)" : "scale(1)", 
+          ...buttonStyles,
         }}
       >
+        {/* FontAwesomeIcon component */}
         <FontAwesomeIcon
-          icon={faLightbulb}
+          icon={faLightbulb} 
           color={isDarkMode ? "white" : "black"}
         />
       </button>

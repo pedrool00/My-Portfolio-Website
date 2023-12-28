@@ -12,6 +12,7 @@ import {
   faMeta,
 } from "@fortawesome/free-brands-svg-icons";
 
+// Define an array of certifications with their titles and corresponding font awesome icons
 const fontAwesomeCertifications = [
   {
     title: "Google Cybersecurity Professional Certificate",
@@ -39,6 +40,7 @@ const fontAwesomeCertifications = [
   },
 ];
 
+// Define an array of certifications with their titles and corresponding non font awesome icons
 const nonFontAwesomeCertifications = [
   {
     title: "Google Cloud Data Engineering, Big Data, and Machine Learning",
@@ -50,6 +52,7 @@ const nonFontAwesomeCertifications = [
   },
 ];
 
+// Define a function to get the link for a certification based on its title
 const getCertificationLink = (title) => {
   switch (title) {
     case "Google Cybersecurity Professional Certificate":
@@ -73,6 +76,7 @@ const getCertificationLink = (title) => {
   }
 };
 
+// Define a function to scroll to the top of the page
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
@@ -80,15 +84,18 @@ const scrollToTop = () => {
   });
 };
 
+// Define the CertificationsSection component
 const CertificationsSection = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true); // Set isDarkMode to true as the default
+  const [isDarkMode, setIsDarkMode] = useState(true);
   const [showButton, setShowButton] = useState(false);
   const isMobile = useBreakpointValue({ base: true, md: false });
 
+  // Function to toggle dark mode
   const handleToggle = () => {
     setIsDarkMode(!isDarkMode);
   };
 
+  // Effect to handle scroll event
   useEffect(() => {
     const handleScroll = () => {
       const scrollThreshold = document.documentElement.scrollHeight - window.innerHeight - 10;
@@ -102,6 +109,7 @@ const CertificationsSection = () => {
     };
   }, []);
 
+  // Define the JSX code for the CertificationsSection component
   return (
     <FullScreenSection
       justifyContent="center"
@@ -116,6 +124,7 @@ const CertificationsSection = () => {
           Certifications
         </Heading>
         <VStack spacing={4} w="100%" maxW={isMobile ? "460px" : "540px"}>
+          {/* Mapping through an array of certifications and rendering them as links */}
           {fontAwesomeCertifications.map((certification, index) => (
             <a
               href={getCertificationLink(certification.title)}
@@ -145,6 +154,7 @@ const CertificationsSection = () => {
               </Box>
             </a>
           ))}
+          {/* Mapping through another array of certifications and rendering them as links */}
           {nonFontAwesomeCertifications.map((certification, index) => (
             <a
               href={getCertificationLink(certification.title)}
@@ -175,6 +185,7 @@ const CertificationsSection = () => {
             </a>
           ))}
 
+          {/* Box to display a heading */}
           <Box
             p={4}
             display="flex"
@@ -186,6 +197,7 @@ const CertificationsSection = () => {
             Never Stop Learning
           </Heading>
         </Box>
+        {/* Button to Swap Colors */}
         {showButton && (
         <ColorSwapButton
           isDarkMode={isDarkMode}
@@ -199,6 +211,7 @@ const CertificationsSection = () => {
           }}
         />
       )}
+        {/* Button to scroll to top */}
         <Button
           onClick={scrollToTop}
           colorScheme="white"

@@ -9,6 +9,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack, useMediaQuery } from "@chakra-ui/react";
 
+// Array of social media icons from FontAwesome
 const faSocials = [
   {
     icon: faInstagram,
@@ -24,6 +25,7 @@ const faSocials = [
   },
 ];
 
+// Array of non-FontAwesome social icons
 const nonFaSocials = [
   {
     icon: thmIcon,
@@ -36,10 +38,16 @@ const nonFaSocials = [
 ]
 
 const Header = () => {
+  // Check if the screen size is mobile or not
   const [isMobile] = useMediaQuery("(max-width: 768px)");
+  
+  // State variables for handling hovered FontAwesome icons
   const [hoveredFaIcon, setHoveredFaIcon] = useState(null);
+
+  // State variables for handling hovered non-FontAwesome icons
   const [hoveredNonFaIcon, setHoveredNonFaIcon] = useState(null);
 
+  // Handlers for when a FontAwesome icon is hovered
   const handleFaIconEnter = (index) => {
     setHoveredFaIcon(index);
   };
@@ -48,6 +56,7 @@ const Header = () => {
     setHoveredFaIcon(null);
   };
 
+  // Handlers for when a non-FontAwesome icon is hovered
   const handleNonFaIconEnter = (index) => {
     setHoveredNonFaIcon(index);
   };
@@ -56,16 +65,19 @@ const Header = () => {
     setHoveredNonFaIcon(null);
   };
 
+  // State variable for handling hovered navigation
   const [hoveredNav, setHoveredNav] = useState(null);
-  
+
+  // Handlers for when a navigation item is hovered
   const handleNavEnter = (nav) => {
     setHoveredNav(nav);
   };
-  
+
   const handleNavLeave = () => {
     setHoveredNav(null);
   };
 
+  // Handler for scrolling to a specific section on clicking a navigation item
   const handleClick = (anchor) => (e) => {
     e.preventDefault();
     const id = `${anchor}-section`;
@@ -78,9 +90,13 @@ const Header = () => {
     }
   };
 
+  // Reference to the header element
   const headerRef = useRef(null);
+
+  // Reference to the previous scroll position
   const prevScrollY = useRef(0);
 
+  // useEffect hook for handling scroll behavior of the header
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -115,6 +131,7 @@ const Header = () => {
       backgroundColor="#18181b"
       ref={headerRef}
     >
+      {/* Comment: Box component with custom styles */}
       <Box color="white" maxWidth="1280px" margin="0 auto">
         <HStack
           px={10}
@@ -124,6 +141,7 @@ const Header = () => {
         >
           <nav>
             <HStack spacing={3}>
+              {/* Comment: Mapping over faSocials array */}
               {faSocials.map((social, index) => (
                 <a
                   key={index}
@@ -139,9 +157,14 @@ const Header = () => {
                   onMouseEnter={() => handleFaIconEnter(index)}
                   onMouseLeave={handleFaIconLeave}
                 >
-                  <FontAwesomeIcon icon={social.icon} size={isMobile ? "lg" : "2x"} />
+                  {/* Comment: FontAwesomeIcon component */}
+                  <FontAwesomeIcon
+                    icon={social.icon}
+                    size={isMobile ? "lg" : "2x"}
+                  />
                 </a>
               ))}
+              {/* Comment: Mapping over nonFaSocials array */}
               {nonFaSocials.map((social, index) => (
                 <a
                   key={index}
@@ -157,6 +180,7 @@ const Header = () => {
                   onMouseEnter={() => handleNonFaIconEnter(index)}
                   onMouseLeave={handleNonFaIconLeave}
                 >
+                  {/* Comment: Image component */}
                   <img
                     src={social.icon}
                     alt="Social Icon"
@@ -168,7 +192,14 @@ const Header = () => {
             </HStack>
           </nav>
           <nav>
-            <HStack spacing={4} style={{ flexDirection: isMobile ? "column" : "row", gap: isMobile ? "0.05rem" : "1rem" }}>
+            <HStack
+              spacing={4}
+              style={{
+                flexDirection: isMobile ? "column" : "row",
+                gap: isMobile ? "0.05rem" : "1rem",
+              }}
+            >
+              {/* Comment: Skills navigation link */}
               <a
                 href="#skills"
                 onClick={handleClick("skills")}
@@ -185,6 +216,7 @@ const Header = () => {
               >
                 Skills
               </a>
+              {/* Comment: Certifications navigation link */}
               <a
                 href="#certifications"
                 onClick={handleClick("certifications")}
@@ -201,6 +233,7 @@ const Header = () => {
               >
                 Certifications
               </a>
+              {/* Comment: Contact navigation link */}
               <a
                 href="#contact"
                 onClick={handleClick("contact")}
